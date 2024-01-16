@@ -5,22 +5,23 @@ name: Sync on Github - Test
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
 on:
-  
+  schedule:
+  - cron:  "*/15 * * * *"
+  workflow_dispatch:
+
 jobs:
-    repo-sync:
-      runs-on: ubuntu-latest
-      steps:
-      - uses: actions/checkout@v3
-        with:
-          persist-credentials: false
-      - name: repo-sync
-        uses: repo-sync/github-sync@v2
-        with:
-          source_repo: "$"
-          source_branch: "*"
-          destination_branch: "*"
-          github_token: ${{ secrets.PAT }}
-          sync_tags: "true"
-    # Runs a single command using the runners shell
+  repo-sync:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        persist-credentials: false
+    - name: repo-sync
+      uses: repo-sync/github-sync@v2
+      with:
+        source_repo: ""
+        source_branch: ""
+        destination_branch: ""
+        github_token: ${{ secrets.PAT }}    # Runs a single command using the runners shell
     - name: Send greeting
       run: echo "Hello ${{ inputs.name }}"
