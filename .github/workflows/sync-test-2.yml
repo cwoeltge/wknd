@@ -7,9 +7,9 @@ name: Sync on Github - Test
 on:
   workflow_dispatch:
 
+permissions: write-all
 jobs:
   repo-sync:
-    permissions: write-all
     runs-on: ubuntu-latest
     steps:
     - name: Foo is bar - Sync remote repository from another remote repository
