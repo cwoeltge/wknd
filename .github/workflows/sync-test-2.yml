@@ -11,14 +11,16 @@ permissions: write-all
 jobs:
   repo-sync:
     runs-on: ubuntu-latest
-    steps:
-    - name: Foo is bar - Sync remote repository from another remote repository
-      run: gh repo sync w-friends/wknd --source cwoeltge/wknd
-      env:
+    env:
         GH_TOKEN: ${{ github.token }}
         GH_PAT: ${{ secrets.PAT }}
         GH_REPO: ${{ github.repository }}
         OWNER: ${{ github.repository_owner }}
         REPO: ${{ github.repository }}
         GH_DEBUG: 1
+    steps:
+    - name: Foo is bar - read
+      run: gh repo view w-friends/wknd
+    - name: Foo is bar - Sync remote repository from another remote repository
+      run: gh repo sync w-friends/wknd --source cwoeltge/wknd
 
