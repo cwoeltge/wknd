@@ -16,7 +16,9 @@ jobs:
       run: gh repo sync w-friends/wknd --source cwoeltge/wknd
       env:
         GH_TOKEN: ${{ github.token }}
+        GH_PAT: ${{ secrets.PAT }}
         GH_REPO: ${{ github.repository }}
         OWNER: ${{ github.repository_owner }}
         REPO: ${{ github.repository }}
+        GH_DEBUG: 1
 
