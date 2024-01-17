@@ -20,6 +20,6 @@ jobs:
         source_repo: ""
         source_branch: ""
         destination_branch: ""
-        github_token: ${{ secrets.PAT }}    # Runs a single command using the runners shell
+        github_token: ${{ secrets.GITHUB_TOKEN }}    # Runs a single command using the runners shell
     - name: Send greeting
       run: echo "Hello ${{ inputs.name }}"
