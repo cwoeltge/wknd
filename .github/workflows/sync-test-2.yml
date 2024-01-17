@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Foo is bar - Sync remote repository from another remote repository
-      run: gh repo sync w-friends/wknd --source
+      run: gh repo sync w-friends/wknd
       env:
         GH_TOKEN: ${{ github.token }}
         GH_REPO: ${{ github.repository }}
