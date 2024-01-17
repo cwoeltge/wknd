@@ -9,6 +9,7 @@ on:
 
 jobs:
   repo-sync:
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
     - name: Foo is bar - Sync remote repository from another remote repository
