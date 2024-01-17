@@ -26,7 +26,7 @@ jobs:
     name: Git Repo Sync
     steps:
     - name: Send greeting
-      run: echo "Hello ${{ GITHUB_TOKEN }}"
+      run: echo "Hello ${{ secrets.GITHUB_TOKEN }}"
     # Runs a single command using the runners shell
     - name: Send greeting
       run: echo "Hello ${{ inputs.name }}"
